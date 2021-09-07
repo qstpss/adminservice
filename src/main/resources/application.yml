@@ -1,0 +1,7 @@
+generate-date-time:
+  service:
+    base:
+      url: http://gdtservice:8084
+
+server:
+  port: 8086
