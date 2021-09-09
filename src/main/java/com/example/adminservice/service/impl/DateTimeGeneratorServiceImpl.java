@@ -16,7 +16,7 @@ public class DateTimeGeneratorServiceImpl implements DateTimeGeneratorService {
     }
 
     @Override
-    @Scheduled(cron = "0 * * ? * *")
+    @Scheduled(cron = "0/5 * * * * ?")
     public void triggerTime() {
         if (hasToTrigger) {
             System.out.println("######TRIGGERED####");
