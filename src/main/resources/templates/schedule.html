@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Schedule option panel</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.2/css/bootstrap.min.css} "/>
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/trigger-schedule}" th:object="${schedule}" method="post">
+        <table border="1">
+            <tr>
+                <td><input type="button" th:field="*{isEnabled}"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"/></td>
+            </tr>
+        </table>
+    </form>
+    <br/><br/>
+    Current state is <span th:text="${schedule.isEnabled}"/>
+</div>
+</body>
+</html>

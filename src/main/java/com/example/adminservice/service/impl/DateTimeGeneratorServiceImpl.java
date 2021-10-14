@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class DateTimeGeneratorServiceImpl implements DateTimeGeneratorService {
 
     private final DateTimeGeneratorHttpClient dateTimeGeneratorHttpClient;
-    private static boolean hasToTrigger = true;
+    public static boolean hasToTrigger = true;
 
     public DateTimeGeneratorServiceImpl(DateTimeGeneratorHttpClient dateTimeGeneratorHttpClient) {
         this.dateTimeGeneratorHttpClient = dateTimeGeneratorHttpClient;
@@ -22,5 +22,16 @@ public class DateTimeGeneratorServiceImpl implements DateTimeGeneratorService {
             System.out.println("######TRIGGERED####");
             dateTimeGeneratorHttpClient.generate();
         }
+    }
+
+    @Override
+    public boolean changeSchedulingState() {
+        hasToTrigger = !hasToTrigger;
+        return hasToTrigger;
+    }
+
+    @Override
+    public boolean getSchedulingState() {
+        return hasToTrigger;
     }
 }
